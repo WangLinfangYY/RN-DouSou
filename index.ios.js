@@ -11,6 +11,7 @@ import {
   Text,
   View
 } from 'react-native';
+import Navigation from './iOS_views/common/navigation'
 
 export default class DouSouApp extends Component {
   render() {
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
 });
 
 import TabBar from './iOS_views/tabbar_ios'
-AppRegistry.registerComponent('DouSouApp', () => TabBar);
+AppRegistry.registerComponent('DouSouApp', () => Navigation);
 
 
 

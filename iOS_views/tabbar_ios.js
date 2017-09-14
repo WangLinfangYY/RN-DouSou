@@ -7,10 +7,16 @@ import{
 	TabBarIOS,
 	ScrollView,
 	StatusBar,
+	NavigatorIOS,
 }from 'react-native';
+// import {Navigator}
+//  from 'react-native-deprecated-custom-components'
 
 import Navigation from './common/navigation';
 
+import Book from './book/book_list'
+import Movie from './movie/movie' 
+import Music from './music/music'
 export default class TabBar extends Component{
 	constructor(props) {
 	  super(props);
@@ -20,6 +26,7 @@ export default class TabBar extends Component{
 	  };
 	}
 	render(){
+		const {navigator} = this.props;
 		return (
 			<TabBarIOS>
 				<TabBarIOS.Item
@@ -30,8 +37,7 @@ export default class TabBar extends Component{
 							selectedTab:'图书',
 						});
 					}}>
-					<Navigation component = {<View
-						style = {{backgroundColor:'red'}}/>}/>
+					<Book navigator={navigator}/>
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
@@ -42,7 +48,7 @@ export default class TabBar extends Component{
 							selectedTab:'电影',
 						});
 					}}>
-					<View/>
+					<Movie navigator={navigator}/>
 				</TabBarIOS.Item>
 
 				<TabBarIOS.Item
@@ -53,7 +59,7 @@ export default class TabBar extends Component{
 							selectedTab:'音乐',
 						});
 					}}>
-					<View/>
+					<Music navigator={navigator}/>
 				</TabBarIOS.Item>
 			</TabBarIOS>
 		);

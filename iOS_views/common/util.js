@@ -5,7 +5,8 @@ Until模块工具类
 import React,{Component} from 'react'
 import {
 	PixelRatio,
-	ActivityIndicatorIOS
+	ActivityIndicatorIOS,
+	ActivityIndicator
 } from 'react-native'
 
 import Dimensions from 'Dimensions'
@@ -26,11 +27,15 @@ module.exports = {
 	@param {string} url
 	@param {function} callback 请求成功回调
 	*/
-	get:function(url,successCallback,failCallback){
-		fetch(url)
-			.then((response)=>response.text())
+	get(url,successCallback,failCallback){
+		// alert(url);
+		 fetch(url)
+			.then((response)=>
+				response.json()
+			)
 			.then((responseText)=>{
-				successCallback(JSON.parse(responseText));
+				// alert('asdfasdf'+url+'---->'+JSON.stringify(responseText));
+				successCallback(responseText);
 			})
 			.catch(function(err){
 				failCallback(err);
@@ -38,8 +43,8 @@ module.exports = {
 	},
 
 	/*loading效果*/
-	loading:<ActivityIndicatorIOS color = '#3E00FF'
-		style = {{marginTop:40,marginLeft:Dimensions.get('window').width/2 -10}}/>
+	loading:<ActivityIndicator color = '#3E00FF'
+		style = {{marginTop:40,marginRight:Dimensions.get('window').width/8}}/>
 }
 
 

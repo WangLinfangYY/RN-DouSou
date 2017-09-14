@@ -6,10 +6,9 @@ import {
 	ListView,
 	Image,
 	ScrollView,
-	TouchalbeOpacity,
+	TouchableOpacity,
 }from 'react-native'
-
-var Icon = require('./left_icon');
+import Icon from './left_icon'
 var Util = require('./util');
 
 export default class Header extends Component{
@@ -17,29 +16,29 @@ export default class Header extends Component{
 		var obj = this.props.initObj;
 		return(
 			<View style = {[styles.header,styles.row,styles.center]}>
-			 	<TouchalbeOpacity style = {[styles.row,styles.center]} onPress = {()=>this._pop()}>
+			 	<TouchableOpacity style = {[styles.row,styles.center]} onPress = {()=>this._pop()}>
 			 		<Icon/>
 			 		<Text style = {styles.fontFFF}>{obj.backName}</Text>
-			 	</TouchalbeOpacity>
+			 	</TouchableOpacity>
 			 	<View style = {[styles.title,styles.center]}>
 			 		<Text style = {[styles.fontFFF,styles.titlePos]}
 			 			numberOfLines = {1}>{obj.title}</Text>
 			 	</View>
 			</View>
-			);
+		);
 	}
 	_pop(){
 		this.props.navigator.pop();
 	}
 }
 
-var styles = StyleSheet.create(){
+var styles = StyleSheet.create({
 	row:{
 		flexDirection:'row'
 	},
 	header:{
-		height:50,
-		backgroundColor:'#33497FF'
+		height:64,
+		backgroundColor:'#3497FF'
 	},
 	fontFFF:{
 		color:'#fff',
@@ -50,13 +49,13 @@ var styles = StyleSheet.create(){
 		flex:1,
 	},
 	titlePos:{
-		marginLeft:-20,width:200,
+		marginLeft:10,marginRight:10,
 	},
 	center:{
 		justifyContent:'center',
 		alignItems:'center',
 	},
-} 
+} );
 
 
 

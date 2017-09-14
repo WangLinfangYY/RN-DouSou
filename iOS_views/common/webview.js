@@ -8,7 +8,7 @@ import Util from './util';
 export default class Web extends Component{
 	render(){
 		return(
-			<View>
+			<View style = {{width:Util.size.width,height:Util.size.height,backgroundColor:'white'}}>
 				<Header
 					navigator = {this.props.navigator}
 					initObj = {{
@@ -19,7 +19,7 @@ export default class Web extends Component{
 					contentInset = {{top:-40}}
 					startInLoadingSate = {true}
 					style = {{width:Util.size.width,height:Util.size.height - 50}}
-					url = {this.props.url}></WebView>
+					source = {{uri:this.props.url}}></WebView>
 			</View>
 		);
 	}
